@@ -1,0 +1,56 @@
+{
+  "name": "dc-molniya-tools",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/dc-molniya-tools/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/dc-molniya-tools",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "apps/dc-molniya-tools/src/main.ts",
+        "tsConfig": "apps/dc-molniya-tools/tsconfig.app.json",
+        "assets": ["apps/dc-molniya-tools/src/assets"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "dc-molniya-tools:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "dc-molniya-tools:build:development"
+        },
+        "production": {
+          "buildTarget": "dc-molniya-tools:build:production"
+        }
+      }
+    }
+  }
+}
