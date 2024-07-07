@@ -35,5 +35,6 @@
       },
       "exclude": ["apps/dc-molniya-tools-e2e/**/*"]
     }
-  ]
+  ],
+  "nxCloudAccessToken": "M2IyY2IwYWItZWI4MC00NTVkLWE0YTEtYTE1ZWQzMGEwNGRhfHJlYWQtd3JpdGU="
 }
